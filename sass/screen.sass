@@ -12,12 +12,12 @@ $header_bg: #003a3b
 $main_font: #888
 $highlight: #7DB6D5
 $dark_orange: #f7931e
-$light_orange: #fff350
+$orange_border: #d78127
+$light_yellow: #fff100
 
 =highlight
 	:color #000
 	:font-weight bold
-	:font-size 1.1em
 
 =menu-styling
 	:background $dark_orange
@@ -25,10 +25,16 @@ $light_orange: #fff350
 	:overflow hidden
 	+box-shadow(0 0 10px 1px #555)
 
+.light-accent
+	:color $light_yellow
+
 body,html
 	+background-image(url(../img/vintage_speckles.png))
 	:color $main_font
 	:font 14px Helvetica
+	:height 480px
+	:width 320px
+	:overflow hidden
 
 .content
 	:padding 0 5px 0
@@ -60,44 +66,38 @@ nav
 	li
 		:padding 4px
 	li:first-child
-		:margin-top 10px
+		:margin-top 4px
 	> li > .img
 		+border-radius(10px)
 		+box-shadow(1px 1px 18px #333333)
+		:margin-top 2px
 		:margin-right 10px
 		:overflow hidden
 	> li > .bd
-		:padding 10px
+		:padding 4px
 		:background #fefefe
 		:border 2px solid #ddd
 		+border-radius(5px)
 	.name
 		+highlight
-		:float left
-		:font-size 1.4em
-	.location
-		+highlight
-		:margin-top 5px
-		:clear right
-		:float right
-	time
-		+highlight
-		:float right
-	.message
-		:clear left
 		:display block
-		:float left
+		:font-size 1.2em
+	.at,.location
+		+highlight
+		:color $dark_orange
+		:margin-right -.3em
+	.message
+		:font-size .9em
+		:display block
 
 .screen
 	header, footer
 		+menu-styling
 .screen
 	header
-		h1
-			:padding 6px
-			:text-align center
-			:font-size 30px
-			:font-weight bold
+		:height 48px
+		+background(url(../img/400x80_banner_v2.png) center center no-repeat #f7931e)
+		:text-indent -9999px
 
 footer
 	nav

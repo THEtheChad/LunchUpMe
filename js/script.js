@@ -4,7 +4,7 @@ $(function(){
 		$status_container = $('.status'),
 		$status = $(status_tmpl);
 
-	for(var i = 0; i < 5; i++){
+	for(var i = 0; i < 6; i++){
 		var $clone = $status.clone();
 		setTimeout((function($clone, i){
 			return function(){
