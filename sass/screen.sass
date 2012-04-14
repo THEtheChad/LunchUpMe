@@ -1,0 +1,113 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass/reset"
+@import "compass/css3"
+@import "compass"
+
+$main_bg: #faf4dc
+$header_bg: #003a3b
+$main_font: #888
+$highlight: #7DB6D5
+$dark_orange: #f7931e
+$light_orange: #fff350
+
+=highlight
+	:color #000
+	:font-weight bold
+	:font-size 1.1em
+
+=menu-styling
+	:background $dark_orange
+	:color #fff
+	:overflow hidden
+	+box-shadow(0 0 10px 1px #555)
+
+body,html
+	+background-image(url(../img/vintage_speckles.png))
+	:color $main_font
+	:font 14px Helvetica
+
+.content
+	:padding 0 5px 0
+
+/* === MEDIA OBJECT === */
+
+.media
+	.bd
+		:overflow hidden
+		:_overflow visible
+		:zoom 1
+	.img
+		:float left
+		img
+			:display block
+		.ext
+			:float right
+
+/* === NAVIGATION === */
+
+nav
+	ul
+		:list-style none
+		li
+			:float left
+
+.status
+	:height 400px
+	li
+		:padding 4px
+	li:first-child
+		:margin-top 10px
+	> li > .img
+		+border-radius(10px)
+		+box-shadow(1px 1px 18px #333333)
+		:margin-right 10px
+		:overflow hidden
+	> li > .bd
+		:padding 10px
+		:background #fefefe
+		:border 2px solid #ddd
+		+border-radius(5px)
+	.name
+		+highlight
+		:float left
+		:font-size 1.4em
+	.location
+		+highlight
+		:margin-top 5px
+		:clear right
+		:float right
+	time
+		+highlight
+		:float right
+	.message
+		:clear left
+		:display block
+		:float left
+
+.screen
+	header, footer
+		+menu-styling
+.screen
+	header
+		h1
+			:padding 6px
+			:text-align center
+			:font-size 30px
+			:font-weight bold
+
+footer
+	nav
+		ul
+			li
+				:width 29.333%
+				:text-align center
+				:padding 1.9%
+				a
+					:text-transform uppercase
+					:font-size 1.1em
+					:display block
+					:padding 5px
