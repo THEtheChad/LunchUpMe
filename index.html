@@ -4,50 +4,79 @@
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
 	<title></title>
-	<meta name="description" content="">
-	<meta name="author" content="">
+	<meta name="description" content="" />
+	<meta name="author" content="" />
 
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width" />
 
-	<link rel="stylesheet" href="css/screen.css">
+	<!-- STYLESHEETS -->
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-2.0.2.min.css" />
 
-	<script src="js/libs/modernizr-2.5.3.min.js"></script>
+	<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?sensor=true"></script>
+	<script type="text/javascript" src="//google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/src/infobox.js"></script>
 </head>
 <body>
+	<section id="map_status_list">
+		<header>
+			<a id="status_publish" class="btn btn-info" data-toggle="modal" href="#myModal">Status</a>
+			<h1>Lunch<span class="light-accent">Up</span></h1>
+		</header>
+		<ul id="status_list"></ul>
+	</section>
+	<section id="map_canvas"></section>
 
-<section class="screen">
-	<header>
-		<h1>Lunch<span class="light-accent">Up</span></h1>
-	</header>
-	<div class="content">
-		<ul class="user status"></ul>
-	</div>
-</section>
-
-<script type="text/template" id="status-template">
-	<li class="media">
-		<a class="img">
-			<img src="img/THEtheChad.jpg" height="60" width="60" />
-		</a>
-		<div class="bd media">
-			<span class="name">Chad Elliott</span>
-			<time>10:00</time> <span class="at">@</span> <span class="location">Chipotle</span>
-			<span class="message">Not sure what I want and only have ...</span>
+	<!-- MODALS -->
+	<div class="modal hide fade" id="myModal">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal">×</a>
+			<h3>Update your lunch status:</h3>
 		</div>
-	</li>
-</script>
+		<div class="modal-body">
+			<input id="status_time" name="status_time" type="text" placeholder="Time" />
+			<input id="status_location" name="status_location" type="text" placeholder="Location" />
+		</div>
+		<div class="modal-footer">
+			<a href="#" class="btn" data-dismiss="modal">Close</a>
+			<a href="#" class="btn btn-info">Save changes</a>
+		</div>
+	</div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+	<!-- LOAD LIBRARIES -->
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 
-<!-- scripts concatenated and minified via ant build script-->
-<script src="js/plugins.js"></script>
-<script src="js/script.js"></script>
-<!-- end scripts-->
+	<script type="text/javascript" src="js/libs/bootstrap-2.0.2.min.js"></script>
+	<script type="text/javascript" src="js/libs/hogan-2.0.0.min.js"></script>
+	<script type="text/javascript" src="js/libs/underscore-1.3.3.min.js"></script>
+	<script type="text/javascript" src="js/libs/backbone-0.9.2.min.js"></script>
+
+	<!-- LOAD CUSTOM SCRIPTS -->
+	<script src="js/plugins.js"></script>
+	<script src="js/script.js"></script>
+
+	<!-- TEMPLATES -->
+	<script type="text/template" id="status_template">
+		<div class="md">
+			<img src="{{avatar}}" height="60" width="60" />
+		</div>
+		<div class="bd">
+			<span class="name">{{name}}</span>
+			<time class="time">{{time}}</time> <span class="at">@</span> <span class="location">{{location}}</span>
+			<span class="message">{{message}}</span>
+		</div>
+	</script>
+
+	<script type="text/template" id="status_infobox">
+		<div class="infobox">
+			<div class="infobox_message">{{message}}</div>
+			<input id="join" type="button" value="Join" />
+		</div>
+	</script>
 
 </body>
 </html>

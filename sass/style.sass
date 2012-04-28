@@ -1,0 +1,132 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass"
+
+$primary_color: #F7931E
+
+$map_light: #00b2ff
+$map_dark: #00b2ff
+
+$accent: #afd1df
+
+$primary_font: #888
+
+$overlay: rgba(100, 100, 100, 0.5)
+
+=hide-overflow
+	overflow: hidden
+	_overflow: visible
+	zoom: 1
+
+body, html	
+	height: 100%
+	+background-image(url(../img/ricepaper2.png))
+
+#map_canvas
+	height: 100%
+	+hide-overflow
+
+#map_status_list
+	float: right
+	height: 100%
+	width: 350px
+	z-index: 1
+	border-left: 2px solid #CCC
+	+background($overlay)
+	+hide-overflow
+	header, footer
+		background: $primary_color
+		color: #fff
+		+box-shadow(0 0 10px 1px #555)
+		+hide-overflow
+	header
+		height: 48px
+		+background(url(../img/400x80_banner_v2.png) center center no-repeat #f7931e)
+	h1
+		text-indent: -9999px
+
+//=== Structures ===
+
+// media
+.md
+	float: left
+	img
+		display: block
+.bd
+	+hide-overflow
+
+// navigation
+nav
+	>ul
+		list-style: none
+		padding: 0
+		margin: 0
+		position: relative
+		>li
+			position: relative
+		&.horizontal
+			>li
+				float: left
+		&.center
+			float: left
+			left: 50%
+			>li
+				float: left
+				right: 50%
+
+// === Styles ===
+
+#status_list
+	margin: 0
+	padding: 0
+
+.status
+	$border-offset: 2px
+	padding: 5px 0 5px 10px
+	background: #fefefe
+	border-top: 2px solid #ddd
+	&:first-child
+		border-top: none
+	.md
+		width: 60px
+		min-height: 1px
+		margin-right: 10px
+		+inline-block
+		img
+			+border-radius(5px)
+	.bd
+		padding: 4px
+		+inline-block
+	&:hover, &.active
+		background: $accent
+		cursor: pointer
+	.name
+		font-weight: bold
+		display: block
+		font-size: 1.2em
+	.at,.location
+		font-weight: bold
+		color: $primary_color
+		margin-right: -.3em
+	.message
+		font-size: .9em
+		display: block
+
+#status_publish
+	float: right
+	margin: 9px 11px 0 0
+
+.infobox
+	background: #fff
+	+border-radius(10px)
+
+$main_bg: #faf4dc
+$header_bg: #003a3b
+$main_font: #888
+$highlight: #7DB6D5
+$dark_orange: #f7931e
+$orange_border: #d78127
+$light_yellow: #fff100
